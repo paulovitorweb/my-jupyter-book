@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Caminho mais curto &#8212; paulovitorweb notebooks</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Openrouteservice" href="../openrouteservice/index.html" />
+    <link rel="prev" title="Figuras-fundo" href="figure-ground.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">paulovitorweb notebooks</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Notebooks
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GeoData-JP
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geodata_jp/index.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geodata_jp/geodata-jp-bairros-example.html">
+   Bairros de João Pessoa
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../geodata_jp/geodata-jp-pracas-example.html">
+   Praças de João Pessoa
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Sintaxe espacial
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../space_syntax/index.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../space_syntax/example.html">
+   Aplicação
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSMnx
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="figure-ground.html">
+   Figuras-fundo
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Caminho mais curto
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Openrouteservice
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../openrouteservice/index.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../openrouteservice/isochrones.html">
+   Isócronas
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/topics/osmnx/shortest-path.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/topics/osmnx/shortest-path.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Caminho mais curto</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="caminho-mais-curto">
+<h1>Caminho mais curto<a class="headerlink" href="#caminho-mais-curto" title="Permalink to this headline">#</a></h1>
+<p>Autor: <a class="reference external" href="https://github.com/paulovitorweb">Paulo Freitas</a></p>
+<p>Dando continuidade à nossa série de postagens sobre a biblioteca OSMnx, dessa vez vamos usar algumas funções que nos permitem calcular o caminho mais curto entre dois nós da nossa rede. Para isso, vamos precisar, além das bibliotecas que já vínhamos usando, da NetworkX.</p>
+<p>Vamos começar importanto as bibliotecas e baixando uma rede, neste caso o bairro Mangabeira da cidade de João Pessoa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span> <span class="k">as</span> <span class="nn">ox</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="n">ox</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">use_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">log_console</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ox</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.12&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">place</span> <span class="o">=</span> <span class="s2">&quot;Mangabeira, João Pessoa, Brazil&quot;</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="n">place</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s1">&#39;drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plotamos a rede:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">plot_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/shortest-path_5_0.png" src="../../_images/shortest-path_5_0.png" />
+</div>
+</div>
+<p>Note abaixo que ela está em coordenadas geográficas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ox</span><span class="o">.</span><span class="n">graph_to_gdfs</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs
+</pre></div>
+</div>
+</div>
+</div>
+<p>Precisamos utilizar um sistema métrico. Vamos reprojetar para coordenadas UTM usando a função <code class="docutils literal notranslate"><span class="pre">project_graph</span></code>, que identifica a zona apropriada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_proj</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">project_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos plotar a rede reprojetada:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">plot_graph</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/shortest-path_11_0.png" src="../../_images/shortest-path_11_0.png" />
+</div>
+</div>
+<p>Vamos agora obter o GeoDataFrame, um objeto do geopandas, dos nós e dos segmentos (arestas) separadamente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nod_proj</span><span class="p">,</span> <span class="n">edg_proj</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">graph_to_gdfs</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos dar uma olhada no atributo que traz informações sobre o sistema de coordenadas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edg_proj</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;+proj=utm +zone=25 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como esperado, agora está em UTM, e a zona é a 25. Está correto! Com nossa rede já projetada e convertida para dataframe, podemos prosseguir para a obtenção do caminho mais curto entre dois nós.</p>
+<p>Neste exercício, como ponto de origem, vamos usar o centróide da nossa rede. Podemos fazer isso calculando o centróide da sua caixa delimitadora, unindo todos nossos registros em um MultiLineString (<code class="docutils literal notranslate"><span class="pre">edg_proj.unary_union</span></code>) e calculando latitude e longitude máximas e mínimas (<code class="docutils literal notranslate"><span class="pre">bounds</span></code>), e por fim passando estes valores como argumentos para a função <code class="docutils literal notranslate"><span class="pre">box</span></code> da biblioteca shapely que gera a geometria espacial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">box</span>
+<span class="n">bbox</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">edg_proj</span><span class="o">.</span><span class="n">unary_union</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bbox</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>POLYGON ((299188.4052542785 -795312.603456618, 299188.4052542785 -791789.7633969767, 295791.3103270762 -791789.7633969767, 295791.3103270762 -795312.603456618, 299188.4052542785 -795312.603456618))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Definimos que o ponto de origem é o centróide dessa geometria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orig_point</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">centroid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como ponto de destino, um exercício interessante é obter o nó mais oriental da rede. Podemos obtê-lo calculando o maior valor de x. Primeiro, garantimos que o campo ‘x’ contenha valores do tipo <code class="docutils literal notranslate"><span class="pre">float</span></code>. Depois, calculamos o valor máximo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nod_proj</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nod_proj</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">maxx</span> <span class="o">=</span> <span class="n">nod_proj</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para localizar o registro que possui esse valor, usamos a função <code class="docutils literal notranslate"><span class="pre">loc</span></code> do pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">maxx_nod</span> <span class="o">=</span> <span class="n">nod_proj</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">nod_proj</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">maxx</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">maxx_nod</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>x</th>
+      <th>osmid</th>
+      <th>highway</th>
+      <th>lon</th>
+      <th>lat</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2068809393</th>
+      <td>-791904.863676</td>
+      <td>299188.405254</td>
+      <td>2068809393</td>
+      <td>NaN</td>
+      <td>-34.818436</td>
+      <td>-7.160644</td>
+      <td>POINT (299188.405 -791904.864)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Aí está! Temos o nó mais oriental da rede. O índice do nó será utilizado na funçao de caminho mais próximo, então vamos guardá-lo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">targ_node</span> <span class="o">=</span> <span class="n">maxx_nod</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A função <code class="docutils literal notranslate"><span class="pre">get_nearest_node</span></code> obtém o nó da rede mais próximo de um par de coordenadas. Usa-se neste caso o método euclidiano. Como já temos o nó de destino, vamos obter agora o nó de origem, tomando como base, lembremos, o centróide da caixa delimitadora da nossa rede, na variável <code class="docutils literal notranslate"><span class="pre">orig_point</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orig_node</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">get_nearest_node</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="p">(</span><span class="n">orig_point</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">orig_point</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Agora já podemos calcular o caminho mais curto entre os dois pontos por meio da função <code class="docutils literal notranslate"><span class="pre">shortest_path</span></code> da biblioteca networkX. O parâmetro <code class="docutils literal notranslate"><span class="pre">weight</span></code> representa a função de impedância, e, como queremos o caminho mais curto, passamos o atributo <code class="docutils literal notranslate"><span class="pre">length</span></code>. Se não definirmos isso, todos os segmentos terão peso 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">route</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="n">orig_node</span><span class="p">,</span> <span class="n">targ_node</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;length&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">plot_graph_route</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/shortest-path_30_0.png" src="../../_images/shortest-path_30_0.png" />
+</div>
+</div>
+<p>Foi um bom exercício. Uma ressalva importante é que esse método pode desconsiderar conversões proibidas, principalmente em cruzamentos entre avenidas com canteiro central.</p>
+<p>Outra forma de definir os nós é a partir dos índices. Isso é interessante quando sabemos o índice dos nós para os quais queremos calcular a rota.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_node</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">graph_proj</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">last_node</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">graph_proj</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[</span><span class="mi">108</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">route</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="n">first_node</span><span class="p">,</span> <span class="n">last_node</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;length&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">plot_graph_route</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="n">route</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/shortest-path_33_0.png" src="../../_images/shortest-path_33_0.png" />
+</div>
+</div>
+<p>Lembre-se que nossa rede considera o sentido da via (<code class="docutils literal notranslate"><span class="pre">network_type='drive'</span></code>), por isso, perceba como o caminho mais curto leva isso em consideração.</p>
+<p>Podemos obter a distância em metros por meio da função <code class="docutils literal notranslate"><span class="pre">shortest_path_length</span></code> do networkX.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">route_distance</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">shortest_path_length</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="n">first_node</span><span class="p">,</span> <span class="n">last_node</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;length&#39;</span><span class="p">)</span>
+<span class="n">route_distance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3659.3939999999993
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nosso caminho mais curto neste caso possui então cerca de 3,7 km.</p>
+<p>Podemos obter uma lista de coordenadas das linhas que compõem a rota com a função <code class="docutils literal notranslate"><span class="pre">node_list_to_coordinate_lines</span></code>. Usamos o parâmetro <code class="docutils literal notranslate"><span class="pre">use_geom=True</span></code> para que as linhas sejam desenhadas seguindo nossa rede, e não apenas linhas retas de nó pra nó.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">node_list_to_coordinate_lines</span><span class="p">(</span><span class="n">graph_proj</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">use_geom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">lines</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[(296013.8471153404, -794817.5507550935),
+  (296015.072006623, -794754.2685350525)],
+ [(296015.072006623, -794754.2685350525),
+  (296017.0857035151, -794703.0501701394)],
+ [(296017.0857035151, -794703.0501701394),
+  (296017.05362116557, -794695.0977806863)],
+ [(296017.05362116557, -794695.0977806863),
+  (296017.3280605236, -794653.5975768529)],
+ [(296017.3280605236, -794653.5975768529),
+  (296023.143748592, -794515.2290560019)]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Outra coisa muito interessante que podemos fazer é filtrar os segmentos que compõem a rota dentro do GeoDataFrame. Fazemos isso convertendo nossa rota em uma lista de tuplas contendo os nós, e em seguida usamos pra filtrar o gdf pelo índice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">route_nodes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">route</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">route</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+<span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">edg_proj</span><span class="p">[(</span><span class="n">edg_proj</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">u</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">edg_proj</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">v</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">route_nodes</span><span class="p">]</span>
+<span class="n">edg_route</span> <span class="o">=</span> <span class="n">edg_proj</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="n">edg_route</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>u</th>
+      <th>v</th>
+      <th>key</th>
+      <th>osmid</th>
+      <th>highway</th>
+      <th>lanes</th>
+      <th>ref</th>
+      <th>name</th>
+      <th>oneway</th>
+      <th>length</th>
+      <th>geometry</th>
+      <th>maxspeed</th>
+      <th>junction</th>
+      <th>service</th>
+      <th>bridge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>603688211</td>
+      <td>638990298</td>
+      <td>0</td>
+      <td>47430567</td>
+      <td>secondary</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Rua Comerciante Alfredo Ferreira da Rocha</td>
+      <td>False</td>
+      <td>63.632</td>
+      <td>LINESTRING (296013.847 -794817.551, 296015.072...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1098</th>
+      <td>638990298</td>
+      <td>638990091</td>
+      <td>0</td>
+      <td>47430567</td>
+      <td>secondary</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Rua Comerciante Alfredo Ferreira da Rocha</td>
+      <td>False</td>
+      <td>51.531</td>
+      <td>LINESTRING (296015.072 -794754.269, 296017.086...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1058</th>
+      <td>638990091</td>
+      <td>638990373</td>
+      <td>0</td>
+      <td>47430567</td>
+      <td>secondary</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Rua Comerciante Alfredo Ferreira da Rocha</td>
+      <td>False</td>
+      <td>7.995</td>
+      <td>LINESTRING (296017.086 -794703.050, 296017.054...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1174</th>
+      <td>638990373</td>
+      <td>638990106</td>
+      <td>0</td>
+      <td>47430567</td>
+      <td>secondary</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Rua Comerciante Alfredo Ferreira da Rocha</td>
+      <td>False</td>
+      <td>41.723</td>
+      <td>LINESTRING (296017.054 -794695.098, 296017.328...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1070</th>
+      <td>638990106</td>
+      <td>638990388</td>
+      <td>0</td>
+      <td>47430567</td>
+      <td>secondary</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Rua Comerciante Alfredo Ferreira da Rocha</td>
+      <td>False</td>
+      <td>139.228</td>
+      <td>LINESTRING (296017.328 -794653.598, 296023.144...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Assim, temos acesso a todos os campos das arestas, como nome do logradouro e extensão. Por exemplo, podemos obter o mesmo resultado da função <code class="docutils literal notranslate"><span class="pre">shortest_path_length</span></code> apenas somando o campo <code class="docutils literal notranslate"><span class="pre">length</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edg_route</span><span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3659.3940000000002
+</pre></div>
+</div>
+</div>
+</div>
+<p>É isso.</p>
+<p>Sugestão de material para quem quer se aprofundar: <a class="reference external" href="https://github.com/gboeing/osmnx-examples">https://github.com/gboeing/osmnx-examples</a> e <a class="reference external" href="https://automating-gis-processes.github.io/site/notebooks/L6/network-analysis.html">https://automating-gis-processes.github.io/site/notebooks/L6/network-analysis.html</a></p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./topics/osmnx"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="figure-ground.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Figuras-fundo</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../openrouteservice/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Openrouteservice</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Paulo Vitor de Freitas<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
