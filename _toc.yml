@@ -1,0 +1,26 @@
+format: jb-book
+root: index
+parts:
+  - caption: GeoData-JP
+    chapters:
+    - file: topics/geodata_jp/index.md
+      title: Overview
+    - file: topics/geodata_jp/geodata-jp-bairros-example.ipynb
+    - file: topics/geodata_jp/geodata-jp-pracas-example.ipynb
+  - caption: Sintaxe espacial
+    chapters:
+    - file: topics/space_syntax/index.md
+      title: Overview
+    - file: topics/space_syntax/example.ipynb
+  - caption: OSMnx
+    chapters:
+    - file: topics/osmnx/index.md
+      title: Overview
+    - file: topics/osmnx/figure-ground.ipynb
+    - file: topics/osmnx/shortest-path.ipynb
+  - caption: Openrouteservice
+    chapters:
+    - file: topics/openrouteservice/index.md
+      title: Overview
+    - file: topics/openrouteservice/isochrones.ipynb
+      title: Isócronas
