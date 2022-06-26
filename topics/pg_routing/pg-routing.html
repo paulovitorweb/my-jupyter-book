@@ -198,7 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Isócronas
+   Roteamento
   </a>
  </li>
 </ul>
@@ -466,7 +466,7 @@ title="Print to PDF"
 <p>PgRouting é uma extensão do PostGIS para cálculos de roteamento. Este notebook apresenta um exemplo mínimo com preparação da base e obtenção de rota com impedância baseada na distância.</p>
 <section id="rede-viaria">
 <h2>Rede viária<a class="headerlink" href="#rede-viaria" title="Permalink to this headline">#</a></h2>
-<p>Estou usando um recorte do sistema viário da cidade de João Pessoa e arredores da base do OpenStreetMap. A importação para um banco de dados PostgreSQL com extensão PostGIS e PgRouting pode se valer do utilitário osm2pgsql:</p>
+<p>Estou usando um recorte do sistema viário da cidade de João Pessoa e arredores da base do OpenStreetMap. A importação para um banco de dados PostgreSQL com extensão PostGIS e PgRouting pode se valer do utilitário osm2pgsql. Por exemplo:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">osm2pgsql</span> <span class="n">joaopessoa</span><span class="o">-</span><span class="n">osm</span><span class="o">.</span><span class="n">pbf</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">d</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">W</span> <span class="o">-</span><span class="n">H</span> <span class="n">localhost</span>
 </pre></div>
 </div>
