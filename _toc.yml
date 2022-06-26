@@ -24,3 +24,9 @@ parts:
       title: Overview
     - file: topics/openrouteservice/isochrones.ipynb
       title: Isócronas
+  - caption: PgRouting
+    chapters:
+    - file: topics/pg_routing/index.md
+      title: Overview
+    - file: topics/pg_routing/pg-routing.ipynb
+      title: Isócronas
