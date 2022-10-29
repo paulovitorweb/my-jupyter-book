@@ -30,3 +30,7 @@ parts:
       title: Overview
     - file: topics/pg_routing/pg-routing.ipynb
       title: Roteamento
+  - caption: Eleições
+    chapters:
+    - file: topics/eleicoes/eleicoes_jp.ipynb
+      title: 1º turno
