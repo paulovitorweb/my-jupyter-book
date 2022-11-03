@@ -30,7 +30,9 @@ parts:
       title: Overview
     - file: topics/pg_routing/pg-routing.ipynb
       title: Roteamento
-  - caption: Eleições
+  - caption: Eleições 2022
     chapters:
-    - file: topics/eleicoes/eleicoes_jp.ipynb
+    - file: topics/eleicoes/eleicoes_presidenciais_jp_1t.ipynb
       title: 1º turno
+    - file: topics/eleicoes/eleicoes_presidenciais_jp_2t.ipynb
+      title: 2º turno
